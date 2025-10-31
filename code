@@ -1,1 +1,51 @@
+money = float(input("How much money are you offering or something?\n"))
+money = int(money*100)
+money = str(money)
+if money.isdigit() == True:
+    money = int(money)
+    money = float(money/100)
+    interest = float(input("How high is your interest rate?(put in a decimal pal)\n(ex. 1 = 100%, 0.1 = 10%)\n"))
+    decide = int(input("Would you like a loan or invest that money?\n1. Loaning\n2. Investing\n"))
+    match (decide):
+        case 1:
+            time = float(input("How long is your loan term in years?\n"))
 
+        case 2:
+            time = float(input("How long are you investing for in years?\n"))
+        case _:
+            print("Just for that, I'm sending you to prison.")
+            moneyTotal = 1000000
+if (decide == 1 or decide == 2):
+    rate = int(input("How much times is interest being applied for per year?\n"))
+    moneyTotal = money*(1 + (interest/rate))**(rate*time)
+    if (decide == 1):
+        if (moneyTotal >= 100000000):
+            print("You're going to prison twin.\n")
+            print(f"You owe the federal government {moneyTotal:.2f} dollars.")
+            print("\nHope you got a good lawyer! I suggest Sensei Mason.\n")
+            print("Nevermind you got sent to prison twin.\n")
+        else: print(f"You will owe {moneyTotal:.2f}")
+    elif (decide == 2):
+      print(f"You will have {moneyTotal:.2f}")
+      # prison
+if (decide > 2 or decide < 0 or decide == 1 and moneyTotal >= 100000000):
+    print('''
+____________________
+_]|  |  |  |  |  |[_
+_]|==|==|==|==|==|[_
+_]|_ _  |  |  |  |[_
+_]|_|_[ |  |  |  |[_
+_]|_|_[ |  |  |  |[_
+_]|  |  |  |  |  |[_
+_]|  |  |  |  |  |[_
+_]|==|==|==|==|==|[_
+_]|  |  |.-|--|  |[_
+_]|  |  | `.  |  |[_
+_]|  |  |  |`.|  |[_
+_]|  |  |  |  |`.|[_
+_]|  |  |  |  |  |[_
+_]|==|==|==|==|==|[_
+_]|__|__|__|__|__|[_ ''')
+    imprisoned = moneyTotal / 50000
+    print(f"Welcome to jail, you're in here like uhh, {imprisoned:.2f} years or so. Have fun!")
+    print("Oh, you got bored and combusted. That's not good.")
